@@ -25,9 +25,9 @@ Program Sistem Manajemen Wedding Organizer, setiap class disusun dalam beberapa 
 ---
 
 ### 📦 Package `main` sebagai Main
-Package ini merupakan package utama yang berisi class WeddingOrganizerMinpro4.java sebagai _entry point_program melalui method main().
+Package ini merupakan package utama yang berisi class WeddingOrganizer.java sebagai _entry point_program melalui method main().
 
-#### 1. `WeddingOrganizerMinpro3.java`
+#### 1. `WeddingOrganizer.java`
 
 Class ini merupakan class utama yang menjadi _entry point_ program. Class ini digunakan untuk menjalankan program dan menampilkan menu utama.
 
@@ -112,6 +112,17 @@ Class ini merupakan interface yang digunakan untuk mendefinisikan fungsi penceta
 
 ---
 
+### 📦 Subpackage `model.dao` sebagai _Data Access Object_ (DAO)
+Subpackage ini merupakan bagian dari package model yang berfungsi untuk mengelola proses akses dan manipulasi data antara sistem dengan database. Class di dalam subpackage ini bertugas menjalankan operasi CRUD, seperti menambahkan, mengambil, mencari, mengubah, dan menghapus data. Selain itu, subpackage ini menghubungkan objek pada package model dengan tabel dalam database menggunakan JDBC.
+
+Class yang terdapat dalam subpackage ini, antara lain:
+1. PaketWeddingDAO.java
+2. PelangganDAO.java
+3. PemesananWeddingDAO.java
+4. VedorDAO.java
+
+---
+
 ### 📦 Package `controller` sebagai Controller
 
 Package ini merupakan bagian Controller dalam penerapan struktur MVC. Controller berfungsi untuk mengatur alur program dan menghubungkan antara Model dengan View. Package ini berisi class yang menangani operasi CRUD serta validasi input dari pengguna sebelum data diproses. Class yang terdapat dalam package ini diantaranya:
@@ -135,7 +146,8 @@ Class InputValidator digunakan untuk membantu memvalidasi input yang dimasukkan 
 
 * bacaInt(), yaitu method yang berfungsi membaca dan memvalidasi input berupa angka.
 * bacaPilihan(), yaitu method yang berfungsi untuk membaca pilihan menu dari pengguna.
-* bacaTeks(), yaitu method membaca dan memvalidasi input berupa teks.
+* bacaTeks(), yaitu method yang berfungsi untuk membaca dan memvalidasi input berupa teks.
+* bacaTanggal, yaitu method yang berfungsi unutk membaca dan menvalidasi input berupa tanggal dengan format dd-mm-yyyy.
 
 ---
 
@@ -160,6 +172,18 @@ Class ini digunakan untuk menampilkan menu yang terdapat pada program, baik menu
 
 Class ini digunakan untuk menampilkan pesan kepada pengguna, seperti pesan berhasil, pesan kesalahan, atau informasi lainnya selama program berjalan. Pada class ini terdapat method tampilkanPesan() yang digunakan untuk menampilkan pesan dengan format "> [ pesan ] <".
 
+---
+
+### 📦 Package `config` untuk Konfigurasi Database dnegan JDBC??
+
+Package ini berfungsi untuk mengatur konfigurasi dan mengelola koneksi antara aplikasi Sistem Manajemen Wedding Organizer dengan database MySQL menggunakan JDBC (_Java Database Connectivity_). Package ini terdiri dari dua class, yaitu:
+
+#### 1. `Koneksi.java`
+Class ini digunakan untuk membuat dan menyediakan koneksi ke database MySQL, yaitu db_wedding_organizer. Class ini menyimpan konfigurasi koneksi berupa URL database, username, dan password. Method getConnection() digunakan untuk memperoleh koneksi database dan membuat koneksi baru apabila koneksi sebelumnya belum tersedia atau sudah tertutup. Koneksi ini kemudian digunakan oleh class DAO untuk menjalankan operasi pengelolaan data.
+
+
+#### 2. `TesKoneksi.java`
+Class ini digunakan untuk menguji apakah aplikasi berhasil terhubung ke database MySQL. Class ini memanggil method getConnection() dari class Koneksi, kemudian memeriksa hasil koneksi tersebut. Jika koneksi berhasil, program menampilkan pesan bahwa database siap digunakan. Sebaliknya, jika koneksi gagal, program menampilkan pesan untuk memeriksa konfigurasi koneksi dan memastikan layanan MySQL sedang berjalan.
 
 ---
 
