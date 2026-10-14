@@ -174,7 +174,7 @@ Class ini digunakan untuk menampilkan pesan kepada pengguna, seperti pesan berha
 
 ---
 
-### 📦 Package `config` untuk Konfigurasi Database dnegan JDBC??
+### 📦 Package `config` untuk Konfigurasi Database dnegan JDBC
 
 Package ini berfungsi untuk mengatur konfigurasi dan mengelola koneksi antara aplikasi Sistem Manajemen Wedding Organizer dengan database MySQL menggunakan JDBC (_Java Database Connectivity_). Package ini terdiri dari dua class, yaitu:
 
@@ -272,9 +272,9 @@ Penerapan abstract method ini sebelumnya juga sudah dijelaskan pada bagian polym
 
 ---
 
-## ⭐ Penerapan Interface, sebagai Nilai Tambah
+## ⭐ Penerapan Interface
 
-Pada program ini saya menerapkan interface sebagai nilai tambah dengan menggunakan Cetakable. Interface digunakan untuk mendefinisikan fungsi tertentu yang dapat diterapkan oleh beberapa class. Pada program ini, Cetakable digunakan sebagai interface untuk mendefinisikan fungsi pencetakan dokumen.
+Pada program ini saya menerapkan interface dengan menggunakan interface Cetakable. Interface digunakan untuk mendefinisikan fungsi tertentu yang dapat diterapkan oleh beberapa class. Pada program ini, Cetakable digunakan sebagai interface untuk mendefinisikan fungsi pencetakan dokumen.
 
 Penerapan Interface pada program ini adalah sebagai berikut:
 
@@ -291,6 +291,12 @@ Interface Cetakable kemudian diimplementasikan pada class PemesananWedding mengg
 Karena PemesananWedding mengimplementasikan Cetakable, maka class tersebut wajib meng-override method cetakDokumen(). Pada implementasinya, method tersebut digunakan untuk mencetak invoice pemesanan wedding yang berisi informasi seperti ID booking, nama pelanggan, paket wedding, tanggal acara, venue, dan total harga pemesanan.
 
 Selain diterapkan pada PemesananWedding, interface Cetakable juga diterapkan pada VendorCatering dan VendorDekorasi. Pada kedua class tersebut, method cetakDokumen() digunakan untuk mencetak bukti pembayaran vendor. 
+
+---
+
+## ⭐ Penerapan JDBC (_Java Database Connectivity_)
+
+
 
 ---
 
