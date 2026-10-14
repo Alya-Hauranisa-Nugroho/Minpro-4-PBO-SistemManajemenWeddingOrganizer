@@ -18,15 +18,14 @@ Program ini dibuat dengan menerapkan konsep Object Oriented Programming atau OOP
 
 ## 📂 Struktur Package, Class, dan MVC
 
-<img width="480" height="490" alt="image" src="https://github.com/user-attachments/assets/321e5288-ef7e-420f-81c8-9112e56cb4f2" />
-
+<img width="426" height="711" alt="image" src="https://github.com/user-attachments/assets/cbf711c8-c5a4-4106-afa8-8b55dbffcc45" />
 
 Program Sistem Manajemen Wedding Organizer, setiap class disusun dalam beberapa package yang menerapkan struktur MVC, yaitu _Model_, _Controller_, dan _View_. Struktur ini diterapkan untuk merapikan kode program, memisahkan fungsi setiap bagian, serta memudahkan proses pengelolaan dan pengembangan program. Setiap package memiliki fungsi dan classnya masing masing, diantaranya:
 
 ---
 
-### 📦 Package `com.mycompany.weddingorganizerminpro3` sebagai Main
-Package ini merupakan package utama yang berisi class WeddingOrganizerMinpro2.java sebagai _entry point_program melalui method main().
+### 📦 Package `main` sebagai Main
+Package ini merupakan package utama yang berisi class WeddingOrganizerMinpro4.java sebagai _entry point_program melalui method main().
 
 #### 1. `WeddingOrganizerMinpro3.java`
 
