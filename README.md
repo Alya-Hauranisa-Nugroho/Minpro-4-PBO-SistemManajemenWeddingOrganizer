@@ -296,7 +296,46 @@ Selain diterapkan pada PemesananWedding, interface Cetakable juga diterapkan pad
 
 ## ⭐ Penerapan JDBC (_Java Database Connectivity_)
 
+<img width="303" height="287" alt="image" src="https://github.com/user-attachments/assets/2582c2e6-7adc-4df5-929b-5bbbca4d4fcf" />
 
+<img width="1410" height="450" alt="image" src="https://github.com/user-attachments/assets/39dc3661-be8d-4a85-bc6b-52b6f55a4743" />
+
+Sebelum menerapkan JDBC, data dummy pada database diisi terlebih dahulu melalui file db_wedding_organizer.sql. File SQL tersebut digunakan untuk membuat struktur tabel beserta data awal yang dibutuhkan oleh Sistem Manajemen Wedding Organizer. Selanjutnya, JDBC diterapkan untuk menghubungkan aplikasi Java dengan database MySQL, menjalankan perintah SQL, serta memetakan hasil query menjadi objek Java.
+
+Penerapan JDBC pada sistem ini dibagi menjadi tiga bagian, yaitu sebagai berikut:
+
+### 1. Koneksi Database
+
+<img width="1131" height="684" alt="image" src="https://github.com/user-attachments/assets/db1e3a0f-3cc6-449b-a283-29cd727a7d71" />
+
+<img width="1339" height="437" alt="image" src="https://github.com/user-attachments/assets/1f75fcbc-4e57-4585-9865-76b4e83889e4" />
+
+Pada gambar di atas, koneksi database diterapkan melalui class Koneksi.java yang terdapat dalam package config. Class ini menggunakan DriverManager.getConnection() untuk menghubungkan aplikasi Java dengan database MySQL db_wedding_organizer. Selain itu, terdapat class TesKoneksi.java yang digunakan untuk menguji keberhasilan koneksi sebelum database digunakan oleh aplikasi.
+
+Hasil pengujian koneksi ditunjukkan pada output sebagai berikut:
+
+<img width="889" height="243" alt="image" src="https://github.com/user-attachments/assets/72996a3e-9f00-4ea1-a3d4-b181dccff412" />
+
+Berdasarkan hasil pengujian tersebut, koneksi antara aplikasi Java dengan database MySQL berhasil dilakukan sehingga database siap digunakan.
+
+### 2. Prepared Statement
+
+PreparedStatement digunakan untuk menjalankan perintah SQL dengan parameter yang diisi melalui method seperti setInt(), setString(), dan setDate(). Penerapannya dapat dilihat pada method tambahPemesanan() dalam class DAO, yang digunakan untuk menambahkan data pemesanan wedding ke tabel pemesanan_wedding.
+
+<img width="1290" height="543" alt="image" src="https://github.com/user-attachments/assets/b5dd6d4c-0295-486d-ac3c-e99b38c3a9eb" />
+
+Pada method tersebut, perintah SQL INSERT memiliki enam parameter yang diisi berdasarkan atribut objek PemesananWedding, yaitu ID booking, ID pelanggan, ID paket, venue, tanggal acara, dan pax. Seluruh query memakai PreparedStatement dengan parameter ?, sehingga nilai dikirim terpisah dari perintah SQL. Setelah seluruh parameter diisi, method executeUpdate() dijalankan untuk menyimpan data ke database.
+
+Penggunaan PreparedStatement membantu memisahkan perintah SQL dari nilai data yang dimasukkan, sekaligus mengurangi risiko SQL injection.
+
+### 3. Pemetaan Hasil Query ke Object
+
+Pemetaan hasil query ke objek diterapkan melalui method mapRow() dalam class DAO. Method ini menggunakan ResultSet untuk membaca data hasil query dari database, kemudian membentuk objek Java berdasarkan data tersebut.
+
+<img width="923" height="270" alt="image" src="https://github.com/user-attachments/assets/8daf983a-9958-4076-b8ed-daad3d264ca2" />
+
+
+Pada implementasi ini, data pelanggan dipetakan menjadi objek Pelanggan, data paket wedding dipetakan menjadi objek PaketWedding, dan seluruh data tersebut digunakan untuk membentuk objek PemesananWedding. Atribut seperti ID booking, venue, tanggal acara, dan jumlah pax juga diambil dari hasil query menggunakan method seperti getInt(), getString(), dan getDate().
 
 ---
 
